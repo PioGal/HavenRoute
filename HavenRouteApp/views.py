@@ -56,7 +56,7 @@ class CreateRouteView(View):
 
     def get(self, request):
         form = CreateRouteForm()
-        return render(request, 'create_route.html', {'form':form})
+        return render(request, 'create_route.html',{'form': form})
 
     def post(self,request):
         form = CreateRouteForm(request.POST)
