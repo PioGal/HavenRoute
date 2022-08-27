@@ -20,6 +20,7 @@ class Route(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     stop_list = models.ManyToManyField(Port, through='RoutePort')
 
+
 class RoutePort(models.Model):
     port = models.ForeignKey(Port, on_delete=models.CASCADE)
     route = models.ForeignKey(Route, on_delete=models.CASCADE)
@@ -31,8 +32,8 @@ class Cruise(models.Model):
     start_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateTimeField(auto_now_add=True)
     route = models.ForeignKey(Route, on_delete=models.CASCADE, null=True)
-    attendees = models.ManyToManyField(User, related_name='trip_attendees')
-    created_by = models.ManyToManyField(User, related_name='creator')
+    crew = models.ManyToManyField(User, related_name='crew')
+
 
 
 

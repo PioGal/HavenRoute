@@ -47,5 +47,5 @@ class RegisterView(View):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password1'])
             user.save()
-            return redirect('Login')
+            return redirect('login')
         return render(request, 'accounts/create_user.html', {'form': form})

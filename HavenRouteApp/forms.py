@@ -23,12 +23,10 @@ class CreateRouteForm(forms.ModelForm):
 
     class Meta:
         model = Route
+        exclude = ['stop_list']
+
+class AddPortRouteForm:
+
+    class Meta:
+        model = RoutePort
         fields = '__all__'
-
-    name = forms.CharField()
-    date = forms.DateInput
-
-    routeport = forms.ModelMultipleChoiceField(
-        queryset=RoutePort.objects.all(),
-        widget=forms.CheckboxSelectMultiple
-    )

@@ -26,6 +26,10 @@ class CruiseView(ListView):
     model = Cruise
     template_name = 'Cruise_View.html'
 
+class RouteView(ListView):
+    model = Route
+    template_name = 'RouteView.html'
+
 class AddPortsView(View):
 
     def get(self, request):
@@ -52,6 +56,8 @@ class AddAmenityView(View):
             return redirect(reverse('Add_Amenity'))
         return render(request, 'add_object.html', {'form': form})
 
+
+
 class CreateRouteView(View):
 
     def get(self, request):
@@ -65,5 +71,16 @@ class CreateRouteView(View):
             return redirect(reverse('Create_Route'))
         return render(request, 'create_route.html', {'form': form})
 
+class AddPortRouteView(CreateView):
+    model = RoutePort
+    template_name = 'add_object.html'
+    fields = '__all__'
+    success_url = reverse_lazy('add_port_route')
+
+class AddCruiseView(CreateView):
+    model = Cruise
+    template_name = 'add_object.html'
+    fields = '__all__'
+    success_url = reverse_lazy('add_cruise')
 
 

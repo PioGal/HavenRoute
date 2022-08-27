@@ -1,14 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<ul class="list-group">
-        {% for object in object_list %}
-            <li class="list-group-item">{{ object }}</li>
-        {% endfor %}
-    </ul>
+    <tr>
+        <th>Lp</th>
+        <th>Nazwa</th>
+        <th>Udogodnienia</th>
+        <th>Wysokość</th>
+        <th>Szerokość</th>
+    </tr>
+    {% for port in port_list %}
+        <tr class="{% cycle 'bg-secondary' 'bg-light' %}">
+        <td>{{ forloop.counter }}</td>
+        <td>{{ port.name }}</td>
+        <td>{{ port.amenities }}</td>
+        <td>{{ port.lattitude }}</td>
+        <td>{{ port.longitude }}</td>
+        <td><a href="{{ film.get_absolute_url }}">zmien</a> </td>
+
+    </tr>
+    {% endfor %}
 </body>
 </html>
+{% endblock %}

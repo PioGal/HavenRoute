@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,17 +8,17 @@
 </head>
 <body>
 </tr>
-    {% for cruise in cruise_list %}
+    {% for route in route_list %}
         <tr class="{% cycle 'bg-secondary' 'bg-light' %}">
         <td>{{ forloop.counter }}</td>
-        <td>{{ cruise.name }}</td>
-        <td>{{ cruise.route }}</td>
-        <td>{{ cruise.start_date }}</td>
-        <td>{{ cruise.end_date }}</td>
+        <td>{{ route.name }}</td>
+        <td>{{ route.crew }}</td>
+        <td>{{ route.stop_list }}</td>
+        <td>{{ route.user }}</td>
 
     </tr>
     {% endfor %}
     </ul>
 </body>
 </html>
-{%  endblock %}
+{% endblock %}

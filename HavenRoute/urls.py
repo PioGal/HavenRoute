@@ -29,6 +29,9 @@ urlpatterns = [
     path('amenities/', views.AmenitiesListView.as_view(), name='Amenities'),
     path('cruise/', views.CruiseView.as_view(), name='Cruise'),
     path('create_route/', views.CreateRouteView.as_view(), name='Create_Route'),
-    path('accounts/', include('accounts.urls'))
+    path('add_route_port', views.AddPortRouteView.as_view(), name='add_port_route'),
+    path('routes', views.RouteView.as_view(), name='routes'),
+    path('add_cruise', views.AddCruiseView.as_view(), name='add_cruise'),
+    path('accounts/', include('accounts.urls')),
 
 ]
