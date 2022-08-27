@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="card">
+    <ul>Nazwa</ul>
+        <p>{{ object.name }}</p>
+    <ul>Załoga</ul>
+        <p> {{ object.user }}</p>
+    <ul>Trasa</ul>
+        <p> {{ object.stop_list.values }}</p>
+
+
+{% endblock %}

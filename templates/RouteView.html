@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-</tr>
-    {% for route in route_list %}
-        <tr class="{% cycle 'bg-secondary' 'bg-light' %}">
-        <td>{{ forloop.counter }}</td>
-        <td>{{ route.name }}</td>
-        <td>{{ route.crew }}</td>
-        <td>{{ route.stop_list }}</td>
-        <td>{{ route.user }}</td>
-
+    <tr>
+        <th>Lp</th>
+        <th>Nazwa</th>
+    </tr>
+        {% for route in route_list %}
+            <tr class="{% cycle 'bg-secondary' 'bg-light' %}">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ route.name }}</td>
+            <td><a href="{{ route.get_absolute_url }}">zmien</a> </td>
+            <td>
+                <form action="{% url 'route_detail' route.id %}" method="get"> {% csrf_token %}
+                <input type="submit"></form>
+            </td>
     </tr>
     {% endfor %}
     </ul>

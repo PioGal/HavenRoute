@@ -13,9 +13,11 @@
         <tr class="{% cycle 'bg-secondary' 'bg-light' %}">
         <td>{{ forloop.counter }}</td>
         <td>{{ cruise.name }}</td>
-        <td>{{ cruise.route }}</td>
-        <td>{{ cruise.start_date }}</td>
-        <td>{{ cruise.end_date }}</td>
+        <td><a href="{{ port.get_absolute_url }}">zmien</a> </td>
+        <td>
+            <form action="{% url 'cruise_detail' cruise.id %}" method="get"> {% csrf_token %}
+                <input type="submit"></form>
+        </td>
 
     </tr>
     {% endfor %}

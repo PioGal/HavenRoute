@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="card">
+        <p>{{ object.name }}</p>
+        <p> {{ object.longitude }}</p>
+        <p> {{ object.lattitude }}</p>
+        <p> {{ object.amenities.all }}</p>
+        <p> {{ object.description }}</p>
+    </div>
+
+
+{% endblock %}

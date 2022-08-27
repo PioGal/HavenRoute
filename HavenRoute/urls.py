@@ -32,6 +32,10 @@ urlpatterns = [
     path('add_route_port', views.AddPortRouteView.as_view(), name='add_port_route'),
     path('routes', views.RouteView.as_view(), name='routes'),
     path('add_cruise', views.AddCruiseView.as_view(), name='add_cruise'),
+    path('port/<int:pk>/', views.PortDetailView.as_view(), name='port_detail'),
+    path('update_port/<int:pk>', views.PortUpdateView.as_view(), name='update_port'),
+    path('cruise/<int:pk>/', views.CruiseDetailView.as_view(), name='cruise_detail'),
+    path('route/<int:pk>/', views.RouteDetailView.as_view(), name='route_detail'),
     path('accounts/', include('accounts.urls')),
 
 ]

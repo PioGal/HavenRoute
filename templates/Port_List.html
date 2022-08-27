@@ -7,19 +7,21 @@
 <body>
     <tr>
         <th>Lp</th>
-        <th>Nazwa</th>
-        <th>Udogodnienia</th>
-        <th>Wysokość</th>
-        <th>Szerokość</th>
+        <th>Nazwa</th><br>
     </tr>
     {% for port in port_list %}
         <tr class="{% cycle 'bg-secondary' 'bg-light' %}">
         <td>{{ forloop.counter }}</td>
         <td>{{ port.name }}</td>
-        <td>{{ port.amenities }}</td>
-        <td>{{ port.lattitude }}</td>
-        <td>{{ port.longitude }}</td>
-        <td><a href="{{ film.get_absolute_url }}">zmien</a> </td>
+        <td>
+            <form action="{% url 'port_detail' port.id %}" method="get"> {% csrf_token %}
+                <input type="submit">Opis Portu</form>
+        </td>
+        <td>
+            <form action="{% url 'update_port' port.id %}" method="get"> {% csrf_token %}
+                <input type="submit">Uaktualnij</form>
+        </td>
+
 
     </tr>
     {% endfor %}
